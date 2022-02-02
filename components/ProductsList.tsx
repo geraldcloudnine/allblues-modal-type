@@ -17,6 +17,7 @@ const ProductList: React.FC<Props> = ({ data }) => {
               href={'/?product=' + p.id.toString()}
               as={'/' + p.id.toString()}
               passHref
+              scroll={false}
               key={p.id}>
               <StyledCard>
                 <ImageWrapper>

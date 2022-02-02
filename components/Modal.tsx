@@ -1,4 +1,5 @@
 import { font, spacing } from '@styles';
+import { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import ModalPortal from './HOC/ModalPortal';
 
@@ -8,6 +9,18 @@ type Props = {
 };
 
 const Modal: React.FC<Props> = ({ isOpen, children, closeModal }) => {
+  useEffect(() => {
+    const close = (e) => {
+      if (e.keyCode === 27) {
+        closeModal();
+      }
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, []);
+
+  console.log(isOpen);
+
   return (
     <ModalPortal>
       <StyledModal isOpen={isOpen}>

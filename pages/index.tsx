@@ -16,7 +16,7 @@ const Home: NextPage = () => {
 
       <Modal
         isOpen={!!router.query.product}
-        closeModal={() => router.push('/')}>
+        closeModal={() => router.push('/', undefined, { scroll: false })}>
         <ProductView product={router.query.product as string} />
       </Modal>
     </Layout>
